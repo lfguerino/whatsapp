@@ -24,5 +24,47 @@ function start(client) {
           console.error('Error when sending: ', erro); //return object error
         });
     }
-  });
+
+    // Send Messages with Buttons Reply
+    const buttons = [
+      {
+        "buttonText": {
+          "displayText": "Text of Button 1"
+        }
+      },
+      {
+        "buttonText": {
+          "displayText": "Text of Button 2"
+        }
+      }
+    ]
+
+    if (message.body === 'Oi' && message.isGroupMsg === false) {
+      client
+        .sendText(message.from, "Seja Bem-Vindo a Agência FullWeb! 🚀")
+        .then((result) => {
+          console.log('Result: ', result); //return object success
+        })
+        .catch((erro) => {
+          console.error('Error when sending: ', erro); //return object error
+        });
+    }
+    
+    if (message.body === 'Lindeza' && message.isGroupMsg === false) {
+      client
+      .sendImage(
+        message.from,
+        'img.png',
+        'Lindeza',
+        'Lindeza'
+      )
+        .then((result) => {
+          console.log('Result: ', result); //return object success
+        })
+        .catch((erro) => {
+          console.error('Error when sending: ', erro); //return object error
+        });
+    }
+
+    });
 }
